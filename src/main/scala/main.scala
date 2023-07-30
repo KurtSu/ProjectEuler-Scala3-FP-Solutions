@@ -3,6 +3,7 @@ package net.projecteuler.kurtsu
 @main
 def main(): Unit = {
   val solutions: List[Solution] = Problem40 ::
+    Problem89 ::
     Nil
   
   solutions

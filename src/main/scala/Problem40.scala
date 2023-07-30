@@ -5,6 +5,7 @@ import scala.math.pow
 
 object Problem40 extends Solution {
   override val problemNum: Int = 40
+  override val difficulty: Int = 5
 
   override def solution(): String = {
     assert(1 == d(12))
