@@ -6,7 +6,7 @@ object Problem89 extends Solution {
   override val problemNum: Int = 89
   override val difficulty: Int = 20
 
-  override def solution(): String = {
+  override final def solution(): String = {
     val fileURL = "https://projecteuler.net/resources/documents/0089_roman.txt"
     val buffer = scala.io.Source.fromURL(fileURL)
 

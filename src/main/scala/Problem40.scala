@@ -7,7 +7,7 @@ object Problem40 extends Solution {
   override val problemNum: Int = 40
   override val difficulty: Int = 5
 
-  override def solution(): String = {
+  override final def solution(): String = {
     assert(1 == d(12))
 
     (0 to 6).map(pow(10, _).toInt)
