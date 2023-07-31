@@ -2,17 +2,26 @@ package net.projecteuler.kurtsu
 
 import scala.annotation.tailrec
 import Constants._
+
 /**
  * a collection of utilities
  */
 object Util {
-  @tailrec
+  /**
+   * Greatest common divisor of `a` and `b`
+   * @param a the larger one
+   * @param b the smaller one
+   * @return
+   */
   final def gcd(a: Int, b: Int): Int = {
-    if (a < b) gcd(b, a)
-    else {
+    @tailrec
+    def gcdHelper(a: Int, b: Int): Int = {
       b match
         case 0 => a
-        case _ => gcd(b, a % b)
+        case _ => gcdHelper(b, a % b)
     }
+
+    if (a < b) gcdHelper(b, a)
+    else gcdHelper(a, b)
   }
 }
