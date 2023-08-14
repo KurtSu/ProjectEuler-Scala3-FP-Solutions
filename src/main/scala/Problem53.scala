@@ -9,7 +9,7 @@ object Problem53 extends Solution {
 
   override def solution(): String = {
     (1 to 100).map(n =>
-      (1 to 100).count(r =>
+      (1 to n).count(r =>
         comb(n, r) > 1_000_000
       )
     ).sum.toString
