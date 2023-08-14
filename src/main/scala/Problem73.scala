@@ -4,8 +4,8 @@ import scala.math.{ceil, floor}
 import Util.gcd
 
 object Problem73 extends Solution {
-  override def problemNum: Int = 73
-  override def difficulty: Int = 15
+  override val problemNum: Int = 73
+  override val difficulty: Int = 15
 
   override final def solution(): String = {
     assert(3 == rpfInRange(8))

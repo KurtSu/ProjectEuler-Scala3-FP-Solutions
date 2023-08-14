@@ -1,9 +1,8 @@
 package net.projecteuler.kurtsu
 
 object Problem90 extends Solution {
-  override def problemNum: Int = 90
-
-  override def difficulty: Int = 40
+  override val problemNum: Int = 90
+  override val difficulty: Int = 40
 
   override final def solution(): String = {
     val allNums = "0123456789"
