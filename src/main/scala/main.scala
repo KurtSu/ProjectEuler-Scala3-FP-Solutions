@@ -2,8 +2,8 @@ package net.projecteuler.kurtsu
 
 @main
 def main(): Unit = {
-  lazy val solutions: List[Solution] = Problem18 ::
-    Problem32 ::
+  lazy val solutions = Problem18 ::
+    Problem32 :: Problem38 ::
     Problem40 ::
     Problem53 :: Problem55 :: Problem59 ::
     Problem63 :: Problem67 ::
@@ -16,7 +16,8 @@ def main(): Unit = {
     Problem233 ::
     Nil
 
-  lazy val problemNumNotToInclude = List(89, 144, 233)
+  // too slow or read from web
+  lazy val problemNumNotToInclude = List(59, 67, 89, 144, 233)
 
   solutions
     .filter(x => !problemNumNotToInclude.contains(x.problemNum))
