@@ -22,6 +22,12 @@ object Util {
       case _ => gcd(b, a % b)
   }
 
+  /** Least common multiple */
+  @tailrec
+  final def lcm(a: Long, b: Long): Long =
+    if a * b < 0 then lcm(a, -b)
+    else a * b / gcd(a, b)
+
   // TODO obviously, rewrite it.
   @tailrec
   final def comb(n: Int, r: Int): BigInt = {

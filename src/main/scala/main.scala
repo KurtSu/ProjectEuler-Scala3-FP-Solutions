@@ -2,7 +2,9 @@ package net.projecteuler.kurtsu
 
 @main
 def main(): Unit = {
-  lazy val solutions = Problem18 ::
+  lazy val solutions: List[Solution] =
+    Problem1 :: Problem3 :: Problem5 :: Problem6 ::
+    Problem18 ::
     Problem32 :: Problem38 ::
     Problem40 :: Problem45 ::
     Problem53 :: Problem55 :: Problem59 ::
