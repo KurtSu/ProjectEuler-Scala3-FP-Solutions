@@ -23,6 +23,7 @@ object Util {
   }
 
   // TODO obviously, rewrite it.
+  @tailrec
   final def comb(n: Int, r: Int): BigInt = {
     if (r > n / 2) comb(n, n-r)
     else {
@@ -34,38 +35,58 @@ object Util {
     }
   }
 
+  final def leastPrimeFactor(n: Long): Long =
+    if n % 2 == 0 then 2
+    else
+      (3L to sqrt(n).longValue by 2)
+        .find(p => n % p == 0) match
+        case Some(p) => p
+        case None => n
+
+  @tailrec
+  final def isPrime(n: Long): Boolean =
+    if n < 0 then isPrime(-n)
+    else if n < 2 then false
+    else leastPrimeFactor(n) == n
+
   /**
-   * TODO rewrite it in a functional way
-   * Check if a number is prime number or not.
-   * 12/19/2019
-   *
-   * @param n the number.
-   * @return true for prime number, false otherwise.
+   * Perform standard factorization for `n`
+   * @param n n
+   * @return A list of prime factor of `n`, in reverse order.
    */
-  final def isPrime(n: Long): Boolean = {
-    if (n < 0)
-      isPrime(-n)
+  @tailrec
+  final def factorization(n: Long): List[Long] =
+    @tailrec
+    def factorizationHelper(n: Long, acc: List[Long]): List[Long] =
+      if n <= 1 then acc
+      else
+        val lpf = leastPrimeFactor(n)
+        factorizationHelper(n / lpf, lpf :: acc)
 
-    else {
-      if (n % 2 == 0 & n > 2)
-        false
+    if n < 0 then factorization(-n)
+    else factorizationHelper(n, Nil)
 
-      else if (n == 1 || n == 0)
-        false
+  final def factorizationUniquePrimeAndExponent(n: Long): List[(Long, Int)] =
+    @tailrec
+    def uniquePrimeHelper(factors: List[Long], acc: List[(Long, Int)]): List[(Long, Int)] =
+      factors match
+        case Nil => acc
+        case factors =>
+          val primeRepeated = factors.takeWhile(p => p == factors.head)
+          val exp = primeRepeated.length
+          uniquePrimeHelper(factors.drop(exp), (factors.head, exp) :: acc)
 
-      else {
-        var factor: Int = 3
+    uniquePrimeHelper(factorization(n), Nil)
 
-        while (factor <= math.sqrt(n)) {
-          if (n % factor == 0)
-            return false
-          factor += 2
-        }
+  final def phi(n: Long): Long =
+    @tailrec
+    def processTupleList(uniqueFactors: List[(Long, Int)], acc: Long): Long =
+      uniqueFactors match
+        case Nil => acc
+        case (p, e) :: others =>
+          processTupleList(others, acc * pow(p, e-1) * (p-1))
 
-        true
-      }
-    }
-  }
+    processTupleList(factorizationUniquePrimeAndExponent(n), 1)
 
   final def quadraticEqSolver(a: Double, b: Double, c: Double): (Option[Double], Option[Double]) =
     assert(a != 0)
