@@ -16,7 +16,6 @@ object Problem38 extends Solution {
       maxNinePandigital(4, 1000 / 4 to 999) ::
       // n >= 5, 1 + ...
       (5 to 9).map(n => maxNinePandigital(n, 1 to 9)).toList
-      // n = 9, 123456789
     ).max
 
   private def maxNinePandigital(n: Int, mRange: IndexedSeq[Int]): String =
