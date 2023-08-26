@@ -6,7 +6,7 @@ def main(): Unit = {
     Problem1 :: Problem2 :: Problem3 :: Problem5 :: Problem6 :: Problem7 :: Problem10 ::
     Problem18 ::
     Problem32 :: Problem38 ::
-    Problem40 :: Problem45 ::
+    Problem40 :: Problem45 :: Problem49 ::
     Problem55 :: Problem59 ::
     Problem63 :: Problem67 ::
     Problem72 :: Problem73 :: Problem80 ::
