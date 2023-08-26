@@ -22,7 +22,4 @@ object Problem49 extends Solution {
       )
       .filter(_ != "148748178147")
       .head
-
-  def main(args: Array[String]): Unit =
-    println(solution())
 }
