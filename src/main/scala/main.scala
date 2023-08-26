@@ -7,10 +7,10 @@ def main(): Unit = {
     Problem18 ::
     Problem32 :: Problem38 ::
     Problem40 :: Problem45 ::
-    Problem53 :: Problem55 :: Problem59 ::
+    Problem55 :: Problem59 ::
     Problem63 :: Problem67 ::
     Problem72 :: Problem73 :: Problem80 ::
-    Problem89 :: Problem90 ::
+    Problem85 :: Problem89 :: Problem90 ::
     Problem109 ::
     Problem113 :: Problem120 ::
     Problem139 ::

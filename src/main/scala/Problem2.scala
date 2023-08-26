@@ -16,9 +16,5 @@ object Problem2 extends Solution {
   private def sumOfEvenFib(n: Int): Long =
     val radical5 = sqrt(5)
     val phi3 = 2 + sqrt(5)
-    (round((1 + phi3) / radical5 * pow(phi3, n)).longValue - 2) / 4
-
-  def main(args: Array[String]): Unit = {
-    println(solution())
-  }
+    (round((1 + phi3) / radical5 * pow(phi3, n)) - 2) / 4
 }

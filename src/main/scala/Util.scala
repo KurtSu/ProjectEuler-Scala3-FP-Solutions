@@ -30,11 +30,11 @@ object Util {
 
   // TODO obviously, rewrite it.
   @tailrec
-  final def comb(n: Int, r: Int): BigInt = {
+  final def comb(n: Long, r: Long): Long = {
     if (r > n / 2) comb(n, n-r)
     else {
-      var acc: BigInt = 1
-      (0 until r).foreach(i => {
+      var acc: Long = 1
+      (0L until r).foreach(i => {
         acc = acc * (n - i) / (1 + i)
       })
       acc

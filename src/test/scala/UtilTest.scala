@@ -25,4 +25,10 @@ class UtilTest extends AnyFunSuite {
     assert(phi(89 * 90) == phi(89) * phi(90))
     assert(phi(16 * 27) == phi(16) * phi(27))
   }
+
+  test("comb") {
+    val twentyChoose = List(1, 20, 190, 1140, 4845, 15504, 38760, 77520, 125970, 167960, 184756,
+      167960, 125970, 77520, 38760, 15504, 4845, 1140, 190, 20, 1)
+    (0 to 20).foreach(r => assert(comb(20, r) == twentyChoose(r)))
+  }
 }
