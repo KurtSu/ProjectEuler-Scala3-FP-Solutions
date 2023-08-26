@@ -13,10 +13,10 @@ object Problem85 extends Solution {
     (1L to nUpperBound)
       .map(n =>
         val m = round(getPositiveRoot(quadraticEqSolver(0.5, 0.5, -target / comb(n+1, 2))))
-        val diff = abs(target - comb(m+1, 2) * comb(n+1, 2)).toLong
+        val diff = abs(target - comb(m+1, 2) * comb(n+1, 2))
         (m * n, diff)
       )
-      .min(Ordering.by[(Long, Long), Long](_._2))
+      .min(Ordering.by[(Long, Double), Double](_._2))
       ._1
       .toString
 
