@@ -40,7 +40,11 @@ object Problem50 extends Solution {
     if sum < sumUpperBound && isPrime(sum) then Some(sum)
     else None
 
-  /** `primes` should start with 3 */
+  /** `primes` should start with 3
+   *  FIXME this code is buggy, as it should check sum in REVERSE order, and therefore
+   *  should not quit early if `sum >= sumUpperBound`
+   *
+   */
   @tailrec
   private def oddLengthSumPrime(primes: List[Long], length: Int, sumUpperBound: Long): Option[Long] =
     // reaching the end of the primes list.
