@@ -4,7 +4,7 @@ object Problem90 extends Solution {
   override val problemNum: Int = 90
   override val difficulty: Int = 40
 
-  override final def solution(): String = {
+  override final def solution(): String = 
     val allNums = "0123456789"
     val setSize = 6
     val squares = List("01", "04", "06", "16", "25", "36", "46", "64", "81")
@@ -32,5 +32,4 @@ object Problem90 extends Solution {
       })
     }).sum
       .toString
-  }
 }

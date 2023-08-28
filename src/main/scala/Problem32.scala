@@ -17,7 +17,7 @@ object Problem32 extends Solution {
     s.length == n &&
       s.sorted == (1 to n).map(_.toString).reduce(_+_)
 
-  private def listAllProducts(xDigit: Int, yDigit: Int): List[Int] = {
+  private def listAllProducts(xDigit: Int, yDigit: Int): List[Int] = 
     val isNinePandigital = isNPandigital(9)
     val seqToInt = (s: Seq[Int]) => s.map(_.toString).reduce(_+_).toInt
 
@@ -32,6 +32,5 @@ object Problem32 extends Solution {
         else
           None
       ).toList
-  }
 }
 

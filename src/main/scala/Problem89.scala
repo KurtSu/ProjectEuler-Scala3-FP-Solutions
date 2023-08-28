@@ -6,7 +6,7 @@ object Problem89 extends Solution {
   override val problemNum: Int = 89
   override val difficulty: Int = 20
 
-  override final def solution(): String = {
+  override final def solution(): String =
     val fileURL = "https://projecteuler.net/resources/documents/0089_roman.txt"
     val buffer = scala.io.Source.fromURL(fileURL)
 
@@ -18,7 +18,6 @@ object Problem89 extends Solution {
 
     buffer.close
     ret.toString
-  }
 
   private val rToAMap: Map[Char, Int] = Map(
     'I' -> 1,
@@ -45,12 +44,12 @@ object Problem89 extends Solution {
    * @param r a well-formed (not necessarily minimal) Roman number
    * @return the decoded Arabic number
    */
-  final def rToA(r: String): Int = {
+  final def rToA(r: String): Int = 
     @tailrec
-    def rToAHelper(r: String, accArab: Int): Int = {
+    def rToAHelper(r: String, accArab: Int): Int = 
       if (r.isEmpty) accArab
       else if (r.length == 1) rToAHelper(r.tail, rToAMap(r.head) + accArab)
-      else {
+      else 
         val firstArab = rToAMap(r.head)
         val secondArab = rToAMap(r(1))
         if (firstArab < secondArab)
@@ -58,20 +57,18 @@ object Problem89 extends Solution {
           rToAHelper(r.drop(2), (secondArab - firstArab) + accArab)
         else
           rToAHelper(r.tail, firstArab + accArab)
-      }
-    }
+      
 
     rToAHelper(r, 0)
-  }
 
   /**
    * convert an Arabic number to a Roman number in minimal form
    * @param n an Arabic number
    * @return encoded Roman number in minimal form
    */
-  final def aToMinR(n: Int): String = {
+  final def aToMinR(n: Int): String = 
     @tailrec
-    def aToMinRHelper(n: Int, accRome: String, denominationsRemain: List[Int]): String = {
+    def aToMinRHelper(n: Int, accRome: String, denominationsRemain: List[Int]): String = 
       n match
         case 0 => accRome
         case _ =>
@@ -82,9 +79,7 @@ object Problem89 extends Solution {
             accRome + aToRMap(largestDenominationArab) * numberOfLetters,
             denominationsRemain.tail
           )
-    }
 
     // the 3rd arg is like List(1000, 900, 500, 400, ..., 5, 4, 1)
     aToMinRHelper(n, "", aToRMap.keys.toList.sortBy(-_))
-  }
 }
