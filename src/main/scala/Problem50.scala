@@ -17,6 +17,7 @@ object Problem50 extends Solution {
 
   /**
    * not the most elegant code I've ever written I hate to admit.
+   * TODO rewrite it using collectFirst and LazyList
    */
   private def findLongestSeqSum(primes: List[Long], sumUpperBound: Long, maxSeqLength: Int): Long =
     val length = (maxSeqLength to 1 by -1)

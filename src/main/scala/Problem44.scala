@@ -9,17 +9,23 @@ object Problem44 extends Solution {
   override def solution(): String =
     LazyList.from(1)
       .map(_.toLong)
-      .find(b =>
-        (1L to b-1).exists(a =>
-          val pa = p(a)
-          val pb = p(b)
-          val pc = pb + pa
-          val pd = pa + pc
-          val pdAlt = pb + pc
-          isPentagonal(pc) && (isPentagonal(pd) || isPentagonal(pdAlt))
-        )
+      .map(b =>
+        LazyList(1L to b-1 :_*)
+          .map(a =>
+            val pa = p(a)
+            val pb = p(b)
+            val pc = pb + pa
+            if isPentagonal(pc) then
+              // pc - pa = pb = D
+              if isPentagonal(pa + pc) then Some(pb)
+              // pa = pc - pb = D
+              else if isPentagonal(pb + pc) then Some(pa)
+              else None
+            else None
+          )
+          .collectFirst { case Some(d) => d }
       )
-      .map(p)
+      .collectFirst { case Some(d) => d }
       .get
       .toString
 
