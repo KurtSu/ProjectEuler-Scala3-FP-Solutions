@@ -13,14 +13,13 @@ object Util {
    * Greatest common divisor, Euclid's algorithm.
    */
   @tailrec
-  final def gcd(a: Long, b: Long): Long = {
+  final def gcd(a: Long, b: Long): Long =
     b match
       case _ if a < b => gcd(b, a)
       case _ if b < 0 => gcd(a, -b)
       // eventually a >= b >= 0
       case 0 => a
       case _ => gcd(b, a % b)
-  }
 
   /** Least common multiple */
   @tailrec
