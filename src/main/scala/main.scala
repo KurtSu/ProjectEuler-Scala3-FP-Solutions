@@ -5,7 +5,7 @@ def main(): Unit = {
   lazy val solutions: List[Solution] =
     Problem1 :: Problem2 :: Problem3 :: Problem5 :: Problem6 :: Problem7 :: Problem10 ::
     Problem18 ::
-    Problem32 :: Problem38 ::
+    Problem31 :: Problem32 :: Problem38 ::
     Problem40 :: Problem45 :: Problem49 :: Problem50 ::
     Problem55 :: Problem59 ::
     Problem63 :: Problem67 ::

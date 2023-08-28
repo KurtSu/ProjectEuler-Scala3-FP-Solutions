@@ -43,7 +43,7 @@ object Problem50 extends Solution {
   /** `primes` should start with 3
    *  FIXME this code is buggy, as it should check sum in REVERSE order, and therefore
    *  should not quit early if `sum >= sumUpperBound`
-   *
+   *  most obviously, `oddLengthSumPrime(primes, 1, 10)` will return Some(3), instead of Some(7)
    */
   @tailrec
   private def oddLengthSumPrime(primes: List[Long], length: Int, sumUpperBound: Long): Option[Long] =
