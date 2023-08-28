@@ -1,7 +1,7 @@
 package net.projecteuler.kurtsu
 
 @main
-def main(): Unit = {
+def main(): Unit =
   lazy val solutions: List[Solution] =
     Problem1 :: Problem2 :: Problem3 :: Problem5 :: Problem6 :: Problem7 :: Problem10 ::
     Problem18 ::
@@ -24,4 +24,3 @@ def main(): Unit = {
   solutions
     .filter(x => !problemNumNotToInclude.contains(x.problemNum))
     .foreach(x => println(s"problem ${x.problemNum}: ${x.solution()}"))
-}
