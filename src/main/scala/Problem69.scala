@@ -8,8 +8,8 @@ object Problem69 extends Solution {
 
   override def solution(): String =
     (1L to 1_000_000L)
-      .map(n => (n, n.toDouble / phi(n)))
-      .max(Ordering.by[(Long, Double), Double](_._2))
+      .map(n => (n, phi(n)))
+      .max(Ordering.by[(Long, Long), Double] { case (n, phin) => n.toDouble / phin } )
       ._1
       .toString
 }
