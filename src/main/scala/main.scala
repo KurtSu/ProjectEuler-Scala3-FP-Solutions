@@ -10,7 +10,7 @@ def main(): Unit =
     Problem52 :: Problem53 :: Problem55 :: Problem59 ::
     Problem63 :: Problem67 :: Problem69 :: Problem70 ::
     Problem72 :: Problem73 :: Problem80 ::
-    Problem85 :: Problem89 :: Problem90 ::
+    Problem85 :: Problem87 :: Problem89 :: Problem90 ::
     Problem109 ::
     Problem113 :: Problem120 ::
     Problem139 ::
