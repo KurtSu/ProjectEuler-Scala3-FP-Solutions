@@ -9,14 +9,11 @@ object Problem89 extends Solution {
   override final def solution(): String =
     val fileURL = "https://projecteuler.net/resources/documents/0089_roman.txt"
     val buffer = scala.io.Source.fromURL(fileURL)
-
-    val romans = buffer.getLines
-    val ret = romans
+    val ret = try buffer.getLines
       .map(r => (r, aToMinR(rToA(r))))
       .map{ case(ori, min) => ori.length - min.length }
       .sum
-
-    buffer.close
+    finally buffer.close
     ret.toString
 
   private val rToAMap: Map[Char, Int] = Map(

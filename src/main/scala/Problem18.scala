@@ -24,7 +24,6 @@ object Problem18 extends Solution {
         |04 62 98 27 23 09 70 98 73 93 38 53 60 04 23""".stripMargin
 
     val buffer = scala.io.Source.fromString(rawStr)
-    val triangle = parseTriangle(buffer.getLines)
-    buffer.close
+    val triangle = try parseTriangle(buffer.getLines) finally buffer.close
     maxPathSum(triangle).toString
 }

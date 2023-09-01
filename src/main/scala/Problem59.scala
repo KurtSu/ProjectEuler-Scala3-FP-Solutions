@@ -7,8 +7,7 @@ object Problem59 extends Solution {
   override final def solution(): String =
     val fileURL = "https://projecteuler.net/resources/documents/0059_cipher.txt"
     val buffer = scala.io.Source.fromURL(fileURL)
-    val encrypted = buffer.mkString.split(',').map(_.toInt)
-    buffer.close
+    val encrypted = try buffer.mkString.split(',').map(_.toInt) finally buffer.close
 
     val allLowerCase = ('a' to 'z').map(_.toInt)
     // Cartesian product of 3 sets.

@@ -9,8 +9,7 @@ object Problem67 extends Solution {
   override final def solution(): String =
     val fileURL = "https://projecteuler.net/resources/documents/0067_triangle.txt"
     val buffer = scala.io.Source.fromURL(fileURL)
-    val triangle = parseTriangle(buffer.getLines)
-    buffer.close
+    val triangle = try parseTriangle(buffer.getLines) finally buffer.close
     maxPathSum(triangle).toString
 
   final def parseTriangle(lines: Iterator[String]): List[Array[Int]] =

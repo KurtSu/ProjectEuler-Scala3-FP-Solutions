@@ -15,11 +15,13 @@ def main(): Unit =
     Problem113 :: Problem120 ::
     Problem139 ::
     Problem144 ::
-    Problem233 ::
+    Problem233 :: 
+    Problem719 :: 
+    Problem836 ::
     Nil
 
   // too slow or read from web
-  lazy val problemNumNotToInclude = List(59, 67, 89, 144, 233)
+  lazy val problemNumNotToInclude = List(59, 67, 89, 144, 233, 719, 836)
 
   solutions
     .filter(x => !problemNumNotToInclude.contains(x.problemNum))
