@@ -9,28 +9,19 @@ object Problem62 extends Solution {
   override final def solution(): String =
     val numOfPerm = 5
     val cubeRoot = pow(_, 1.0 / 3.0)
-    val lCube = (n: Long) => n * n * n
-    val isPerm = (x: String, y: Long) => x == y.toString.sorted
 
-    val x = LazyList.from(7)
+    LazyList.from(7)
       .map(n => pow(10.0, n))
       .map(low => ceil(cubeRoot(low)).toLong to floor(cubeRoot(10 * low - 1)).toLong)
-      .map(roots => roots.map(lCube))
-      .find(cubes =>
-        // maybe we sort them each first...
-        cubes.exists(cube =>
-          val isPermCube = isPerm(cube.toString.sorted, _)
-          if cubes.count(isPermCube(_)) == numOfPerm then
-            println(cube)
-            true
-          else false
-        )
+      .map(roots => roots.map(root => root * root * root))
+      .map(cubesOfSameDigits =>
+        cubesOfSameDigits
+          .groupBy(n => n.toString.sorted)
+          .find((_, cubesOfPerm) => numOfPerm == cubesOfPerm.length) match
+            case Some(_, cubesOfPerm) => Some(cubesOfPerm.min)
+            case None => None
       )
-    "???"
-
-  def main(args: Array[String]): Unit = {
-    val t = System.currentTimeMillis
-    solution()
-    println(s"runtime: ${System.currentTimeMillis - t} ms")
-  }
+      .collectFirst { case Some(cube) => cube }
+      .get
+      .toString
 }
