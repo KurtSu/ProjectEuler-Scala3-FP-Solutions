@@ -16,8 +16,11 @@ object Problem62 extends Solution {
       .map(roots => roots.map(root => root * root * root))
       .map(cubesOfSameDigits =>
         cubesOfSameDigits
+          // group by permutation
           .groupBy(n => n.toString.sorted)
+          // pick all permutations has 5 elements.
           .filter((_, cubesOfPerm) => numOfPerm == cubesOfPerm.length)
+          // get the lists and flatten them
           .values
           .flatten match
             case Nil => None
