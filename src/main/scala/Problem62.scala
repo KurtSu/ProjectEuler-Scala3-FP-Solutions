@@ -17,11 +17,13 @@ object Problem62 extends Solution {
       .map(cubesOfSameDigits =>
         cubesOfSameDigits
           .groupBy(n => n.toString.sorted)
-          .find((_, cubesOfPerm) => numOfPerm == cubesOfPerm.length) match
-            case Some(_, cubesOfPerm) => Some(cubesOfPerm.min)
-            case None => None
+          .filter((_, cubesOfPerm) => numOfPerm == cubesOfPerm.length)
+          .values
+          .flatten match
+            case Nil => None
+            case it => Some(it.min)
       )
-      .collectFirst { case Some(cube) => cube }
+      .collectFirst { case Some(n) => n }
       .get
       .toString
 }

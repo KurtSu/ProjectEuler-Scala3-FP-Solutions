@@ -21,7 +21,7 @@ def main(): Unit =
     Nil
 
   // too slow or read from web
-  lazy val problemNumNotToInclude = Nil //List(59, 67, 89, 144, 233, 719, 836)
+  lazy val problemNumNotToInclude = List(59, 67, 89, 144, 233, 719, 836)
 
   solutions
     .filter(x => !problemNumNotToInclude.contains(x.problemNum))
