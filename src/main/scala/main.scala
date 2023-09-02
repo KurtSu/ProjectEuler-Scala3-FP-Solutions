@@ -7,7 +7,7 @@ def main(): Unit =
     Problem18 ::
     Problem31 :: Problem32 :: Problem38 ::
     Problem40 :: Problem44 :: Problem45 :: Problem49 :: Problem50 ::
-    Problem52 :: Problem53 :: Problem55 :: Problem59 ::
+    Problem52 :: Problem53 :: Problem54 :: Problem55 :: Problem59 ::
     Problem62 :: Problem63 :: Problem67 :: Problem69 :: Problem70 ::
     Problem72 :: Problem73 :: Problem80 ::
     Problem85 :: Problem87 :: Problem89 :: Problem90 ::
@@ -21,7 +21,7 @@ def main(): Unit =
     Nil
 
   // too slow or read from web
-  lazy val problemNumNotToInclude = List(59, 67, 89, 144, 233, 719, 836)
+  lazy val problemNumNotToInclude = List(54, 59, 67, 89, 144, 233, 719, 836)
 
   solutions
     .filter(x => !problemNumNotToInclude.contains(x.problemNum))
